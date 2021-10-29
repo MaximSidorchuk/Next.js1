@@ -19,6 +19,14 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- powershell: |
+   $ver = $env:BUILD_SOURCEBRANCH.remove(0, 10)
+   Write-Host "##vso[task.setvariable variable=Version]$ver"
+   Write-host $(Build.SourceVersion)
+   Write-host $(Build.BuildNumber)
+  displayName: 'Update version to Tag'
+
+
 - script: |
     npm install
     npm run build
