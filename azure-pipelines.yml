@@ -20,7 +20,8 @@ steps:
   displayName: 'Install Node.js'
 
 - powershell: |
-    $ver = ($(Build.SOURCEBRANCHNAME)).TrimStart('release-')
+    $ver = $(Build.SOURCEBRANCHNAME)
+    $ver = $ver.TrimStart('release-')
     Write-Host "##vso[task.setvariable variable=Version]$ver"
   displayName: 'Get release version'
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/release-'))
