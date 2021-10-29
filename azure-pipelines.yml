@@ -25,7 +25,8 @@ steps:
    Write-host $(Build.SourceVersion)
    Write-host $(Build.BuildNumber)
    Write-host $(Build.SOURCEBRANCH)
-   Get-ChildItem env:
+   Write-host $(Build.SOURCEBRANCHNAME)
+   write-host $ver
   displayName: 'Update version to Tag'
 
 
