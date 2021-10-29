@@ -22,12 +22,13 @@ steps:
 - powershell: |
     $ver = "$(Build.SOURCEBRANCHNAME)"
     $ver = $ver.TrimStart('release-')
-    Write-Host "##vso[task.setvariable variable=Version]$ver"
+    Write-Host "##vso[task.setvariable variable=releaseVersion]$ver"
   displayName: 'Get release version'
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/release-'))
 
 - powershell: |
-    Write-Host $ver
+    get-childitem env:
+    Write-Host $(releaseVersion)
   displayName: 'Get release version 2'
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/release-'))
 
