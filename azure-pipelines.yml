@@ -26,6 +26,10 @@ steps:
   displayName: 'Get release version'
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/release-'))
 
+- powershell: |
+    Write-Host $ver
+  displayName: 'Get release version 2'
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/release-'))
 
 - script: |
     npm install
