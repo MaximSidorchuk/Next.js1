@@ -24,6 +24,8 @@ steps:
    Write-Host "##vso[task.setvariable variable=Version]$ver"
    Write-host $(Build.SourceVersion)
    Write-host $(Build.BuildNumber)
+   Write-host $(Build.SOURCEBRANCH)
+   Get-ChildItem env:
   displayName: 'Update version to Tag'
 
 
