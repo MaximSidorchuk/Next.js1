@@ -30,7 +30,11 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'sudo sh -c ''echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'''
+    script: |
+      sudo sh -c ''echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list''
+      sudo apt-get update
+      sudo apt-get install azure-functions-core-tools-4
+
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
