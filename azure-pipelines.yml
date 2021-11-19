@@ -39,7 +39,6 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      ls -la
       cd 'falcon_app'
       func init --worker-runtime dotnet --docker
-      
+      ls -la
