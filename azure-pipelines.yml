@@ -20,4 +20,14 @@ steps:
     script: |
       pwd
       Invoke-WebRequest -Uri 'https://dotalignartifacts.blob.core.windows.net/releasebinaries/falcon/Falcon_7.8.4.zip' -OutFile falcon_latest.zip
-      ls
+      ls -la
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '**/falcon_latest.zip'
+    destinationFolder: 'falcon_app'
+    cleanDestinationFolder: true
+    overwriteExistingFiles: true
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'ls -la'
