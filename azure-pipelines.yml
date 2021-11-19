@@ -41,4 +41,4 @@ steps:
     script: |
       cd 'falcon_app'
       func init --worker-runtime dotnet --docker
-      cat dockerfile
+      cat /home/vsts/work/1/s/falcon_app/dockerfile
