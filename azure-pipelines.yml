@@ -41,4 +41,8 @@ steps:
     script: |
       cd 'falcon_app'
       func init --worker-runtime dotnet --docker
-      cat /home/vsts/work/1/s/falcon_app/dockerfile
+- task: Docker@2
+  inputs:
+    containerRegistry: 'arc2'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
