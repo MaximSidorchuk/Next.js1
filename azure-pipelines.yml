@@ -27,6 +27,10 @@ steps:
     destinationFolder: 'falcon_app'
     cleanDestinationFolder: true
     overwriteExistingFiles: true
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'sudo sh -c ''echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'''
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
