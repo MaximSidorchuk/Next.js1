@@ -20,3 +20,4 @@ steps:
     script: |
       pwd
       Invoke-WebRequest -Uri 'https://dotalignartifacts.blob.core.windows.net/releasebinaries/falcon/Falcon_7.8.4.zip' -OutFile falcon_latest.zip
+      ls
