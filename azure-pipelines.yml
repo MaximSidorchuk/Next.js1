@@ -41,7 +41,7 @@ steps:
     script: |
       cd 'falcon_app'
       func init --worker-runtime dotnet --docker
-      cat .\Dockerfile
+      cat Dockerfile
 - task: Docker@2
   inputs:
     containerRegistry: 'arc2'
