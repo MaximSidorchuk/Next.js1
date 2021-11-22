@@ -41,7 +41,7 @@ steps:
     script: |
       New-Item Dockerfile -ItemType File -Value ("FROM mcr.microsoft.com/dotnet/sdk:6.0 AS installer-env" + [Environment]::NewLine)
       Add-Content Dockerfile ("COPY --from=mcr.microsoft.com/dotnet/core/sdk:3.1 /usr/share/dotnet /usr/share/dotnet")
-      Add-Content Dockerfile ("COPY /falcon_app/* /home/site/wwwroot/")
+      Add-Content Dockerfile ("COPY /falcon_ap/* /home/site/wwwroot/")
       Add-Content Dockerfile ("FROM mcr.microsoft.com/azure-functions/dotnet:4-appservice")
       Add-Content Dockerfile ("ENV AzureWebJobsScriptRoot=/home/site/wwwroot \")
       Add-Content Dockerfile ("    AzureFunctionsJobHost__Logging__Console__IsEnabled=true")
