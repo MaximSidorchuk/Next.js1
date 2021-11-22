@@ -39,7 +39,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      ls -la
+      ls -la /falcon_app/
       New-Item Dockerfile -ItemType File -Value ("FROM mcr.microsoft.com/dotnet/sdk:6.0 AS installer-env" + [Environment]::NewLine)
       Add-Content Dockerfile ("COPY --from=mcr.microsoft.com/dotnet/core/sdk:3.1 /usr/share/dotnet /usr/share/dotnet")
       Add-Content Dockerfile ("COPY **/falcon_app/* /home/site/wwwroot/")
